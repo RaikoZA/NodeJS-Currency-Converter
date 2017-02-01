@@ -42,10 +42,10 @@ var sendRequest = function (currencyUrl) {
     });
 }
 
-getCurrency(fromCurrency, toCurrency, function (error, result) {
+getCurrency('usd', 'zar', function (error, result) {
   if (error) {
     console.log('Error: ' + error)
   }else {
-    console.log('Converted: ' + result;
+    console.log('Converted: ' + result);
   }
 });
