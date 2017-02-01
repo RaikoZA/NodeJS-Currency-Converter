@@ -18,34 +18,34 @@ var roundOff = function (currency) {
 */
 var getCurrency = function (fromCurrency, toCurrency) {
   var url = 'http://themoneyconverter.com/'+fromCurrency+'/'+toCurrency+'.aspx'
-
-  return sendRequest(url);	
-
+ 
+  sendRequest(url, function (result, error ){
+  	if (result) {
+  	  console.log('Converted: ' + result);
+  	}else {
+  	  console.log('Error: ' + error);
+  	  return;
+  	}
+  });
 }
 
 /**
 * Sends request to currency url with user params
 * @currencyUrl string returns the function getCurrency url
 */
-var sendRequest = function (currencyUrl) {
+var sendRequest = function (currencyUrl, callback) {
 
   request({ url: currencyUrl }, function (err, response, body) {
     if (err) {
-      console.log('Error: ', err);
+      console.log('Error: ' + err);
     }
 
     var $ = cheerio.load(body);
     var currency = $('div.tmc-well.switch-table > p > b').text();
-	  
-    console.log(roundOff(currency));
-
-    });
+    
+    callback(roundOff(currency));
+  
+  });
 }
 
-getCurrency('usd', 'zar', function (error, result) {
-  if (error) {
-    console.log('Error: ' + error)
-  }else {
-    console.log('Converted: ' + result);
-  }
-});
+getCurrency('usd', 'zar');
