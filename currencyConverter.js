@@ -3,8 +3,8 @@ var cheerio = require('cheerio');
 
 /**
 * Rounds off currency output 2 decimal places
+* @param currency is the result returned from sendRequest
 */
-
 var roundOff = function (currency) {
 
   return Math.round(currency * 100) / 100;
@@ -16,9 +16,7 @@ var roundOff = function (currency) {
 * @param fromCurrency selects the currency you would like to convert
 * @param toCurrency converts fromCurrency to new currency user is requesting
 */
-
 var getCurrency = function (fromCurrency, toCurrency) {
-
   var url = 'http://themoneyconverter.com/'+fromCurrency+'/'+toCurrency+'.aspx'
 
   return sendRequest(url);	
@@ -29,7 +27,6 @@ var getCurrency = function (fromCurrency, toCurrency) {
 * Sends request to currency url with user params
 * @currencyUrl string returns the function getCurrency url
 */
-
 var sendRequest = function (currencyUrl) {
 
   request({ url: currencyUrl }, function (err, response, body) {
@@ -42,16 +39,13 @@ var sendRequest = function (currencyUrl) {
 	  
     console.log(roundOff(currency));
 
-    })
+    });
 }
 
-var returnResult = function (fromCurrency, toCurrency) {
-
-  getCurrency(fromCurrency, toCurrency, function (err, result) {
-    if (err) {
-      console.log('Error:', err)
-    }else {
-      return result;
-    }
-  })
-}
+getCurrency(fromCurrency, toCurrency, function (error, result) {
+  if (error) {
+    console.log('Error: ' + error)
+  }else {
+    console.log('Converted: ' + result;
+  }
+});
