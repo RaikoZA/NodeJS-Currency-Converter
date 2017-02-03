@@ -6,10 +6,9 @@ var cheerio = require('cheerio');
 * @param currency is the result returned from sendRequest
 */
 var roundOff = function (currency) {
-
   var result = Math.round(currency * 100) / 100;
+  
   return result.toFixed(2);
-
 }
 
 /**
@@ -19,9 +18,8 @@ var roundOff = function (currency) {
 */
 var getCurrency = function (fromCurrency, toCurrency, callback) {
   var url = 'http://themoneyconverter.com/'+fromCurrency+'/'+toCurrency+'.aspx'
- 
-  return sendRequest(url, callback);
 
+  return sendRequest(url, callback);
 };
 
 /**
@@ -29,17 +27,14 @@ var getCurrency = function (fromCurrency, toCurrency, callback) {
 * @currencyUrl string returns the function getCurrency url
 */
 var sendRequest = function (currencyUrl, callback) {
-
   request({ url: currencyUrl }, function (err, response, body) {
     if (err) {
       callback(err);
     }
-
     var $ = cheerio.load(body);
     var currency = $('div.tmc-well.switch-table > p > b').text();
     
     callback(null, roundOff(currency));
-  
   });
 }
 
