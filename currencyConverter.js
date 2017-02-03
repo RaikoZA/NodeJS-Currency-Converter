@@ -7,8 +7,8 @@ var cheerio = require('cheerio');
 */
 var roundOff = function (currency) {
 
-	var result = Math.round(currency * 100) / 100;
-	return result.toFixed(2);
+  var result = Math.round(currency * 100) / 100;
+  return result.toFixed(2);
 
 }
 
@@ -44,9 +44,9 @@ var sendRequest = function (currencyUrl, callback) {
 }
 
 getCurrency('usd', 'zar', function (error, result) {
-	if (error) {
-		console.log('Error:' + error);
-	}else {
-		console.log('Converted:' + result);
-	}
+  if (error) {
+    console.log('Error:' + error);
+  }else {
+    console.log('Converted:' + result);
+  }
 });
