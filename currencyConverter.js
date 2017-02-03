@@ -43,8 +43,8 @@ var sendRequest = function (currencyUrl, callback) {
   });
 }
 
-getCurrency('usd', 'zar', function(error, result){
-	if(error){
+getCurrency('usd', 'zar', function (error, result) {
+	if (error) {
 		console.log('Error:' + error);
 	}else {
 		console.log('Converted:' + result);
