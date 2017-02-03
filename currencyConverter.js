@@ -7,7 +7,8 @@ var cheerio = require('cheerio');
 */
 var roundOff = function (currency) {
 
-  return Math.round(currency * 100) / 100;
+	var result = Math.round(currency * 100) / 100;
+	return result.toFixed(2);
 
 }
 
@@ -16,18 +17,12 @@ var roundOff = function (currency) {
 * @param fromCurrency selects the currency you would like to convert
 * @param toCurrency converts fromCurrency to new currency user is requesting
 */
-var getCurrency = function (fromCurrency, toCurrency) {
+var getCurrency = function (fromCurrency, toCurrency, callback) {
   var url = 'http://themoneyconverter.com/'+fromCurrency+'/'+toCurrency+'.aspx'
  
-  sendRequest(url, function (result, error ){
-  	if (result) {
-  	  console.log('Converted: ' + result);
-  	}else {
-  	  console.log('Error: ' + error);
-  	  return;
-  	}
-  });
-}
+  return sendRequest(url, callback);
+
+};
 
 /**
 * Sends request to currency url with user params
@@ -37,15 +32,21 @@ var sendRequest = function (currencyUrl, callback) {
 
   request({ url: currencyUrl }, function (err, response, body) {
     if (err) {
-      console.log('Error: ' + err);
+      callback(err);
     }
 
     var $ = cheerio.load(body);
     var currency = $('div.tmc-well.switch-table > p > b').text();
     
-    callback(roundOff(currency));
+    callback(null, roundOff(currency));
   
   });
 }
 
-getCurrency('usd', 'zar');
+getCurrency('usd', 'zar', function(error, result){
+	if(error){
+		console.log('Error:' + error);
+	}else {
+		console.log('Converted:' + result);
+	}
+});
