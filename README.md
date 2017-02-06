@@ -2,14 +2,19 @@
 
 This is a currency to currency module created in NodeJS. It's purpose is to take one currency format and convert it to another currency and return the result.
 
-# Usage:
+### Prerequisites
+
+npm -i cheerio
+npm -i request
+
+### Usage:
 
 You need to call getCurrency, it takes two arguments being the two currencies. 
 The first argument will be the currency you want to convert and the second argument will be what you want to convert too.
 Supply your callback and handle the results
 
-# Example:
-
+### Example:
+```
 getCurrency('usd', 'eur', function () {
   if (error){
     console.log('Error:' + error);
@@ -17,3 +22,4 @@ getCurrency('usd', 'eur', function () {
     console.log('Converted:' + result);
   } 
 });
+```
