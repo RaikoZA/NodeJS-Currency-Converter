@@ -37,11 +37,3 @@ var sendRequest = function (currencyUrl, callback) {
     callback(null, roundOff(currency));
   });
 }
-
-getCurrency('usd', 'zar', function (error, result) {
-  if (error) {
-    console.log('Error:' + error);
-  }else {
-    console.log('Converted:' + result);
-  }
-});
