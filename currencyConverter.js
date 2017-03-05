@@ -9,7 +9,7 @@ var roundOff = function (currency) {
   var result = Math.round(currency * 100) / 100;
   
   return result.toFixed(2);
-}
+};
 
 /**
 * Converts two parameters from param to param1 eg: USD to ZAR
@@ -36,4 +36,4 @@ var sendRequest = function (currencyUrl, callback) {
     
     callback(null, roundOff(currency));
   });
-}
+};
