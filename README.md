@@ -15,7 +15,7 @@ Supply your callback and handle the results
 
 ### Example:
 ```
-getCurrency('usd', 'eur', function () {
+getCurrency('usd', 'eur', function (error, result) {
   if (error){
     console.log('Error:' + error);
   }else {
