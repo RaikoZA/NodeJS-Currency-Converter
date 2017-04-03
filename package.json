@@ -1,0 +1,27 @@
+{
+  "name": "currency-converter",
+  "description": "This is a currency to currency module created in NodeJS. It's purpose is to take one currency format and convert it to another currency and return the result.",
+  "version": "1.0.1",
+  "main": "currencyConverter.js",
+  "dependencies": {
+    "request": "*",
+    "cheerio": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaikoZA/NodeJS-Currency-Converter.git"
+  },
+  "keywords": [
+    "Currency",
+    "Converter"
+  ],
+  "author": "RaikoZA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaikoZA/NodeJS-Currency-Converter/issues"
+  },
+  "homepage": "https://github.com/RaikoZA/NodeJS-Currency-Converter#readme"
+}

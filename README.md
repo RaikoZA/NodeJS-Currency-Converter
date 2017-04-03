@@ -4,8 +4,7 @@ This is a currency to currency module created in NodeJS. It's purpose is to take
 
 ### Prerequisites
 
-* npm i cheerio
-* npm i request
+* npm install
 
 ### Usage:
 

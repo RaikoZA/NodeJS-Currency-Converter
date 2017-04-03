@@ -1,0 +1,8 @@
+node_modules
+
+nbproject/
+*.iml
+.idea
+.vagrant
+.DS_Store
+test.json
