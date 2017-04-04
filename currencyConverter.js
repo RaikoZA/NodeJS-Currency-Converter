@@ -15,7 +15,7 @@ const roundOff = currency => (Math.round(currency * 100) / 100).toFixed(2);
 */
 const sendRequest = (currencyUrl, callback) => {
   request({ url: currencyUrl }, function (error, response, body) {
-    if (error) {
+    if(error) {
       callback('There was an error retrieving url');
     }
 

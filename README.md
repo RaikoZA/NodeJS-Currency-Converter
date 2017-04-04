@@ -8,8 +8,8 @@ This is a currency to currency module created in NodeJS. It's purpose is to take
 
 ## Usage:
 
-After installation, you need to call getCurrency, it takes two arguments being the two currencies. 
-The first argument will be the currency you want to convert and the second argument will be what you want to convert too.
+After prerequisites, you need to call getCurrency, it takes two arguments being the two currencies. 
+The first argument will be the currency you want to convert and the second argument will be what you want to convert to.
 Supply your callback and handle the results.
 
 ## Example:
