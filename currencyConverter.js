@@ -7,11 +7,7 @@ const cheerio = require('cheerio');
  * Rounds off currency output 2 decimal places
  * @param currency is the result returned from sendRequest
 */
-const roundOff = currency => {
-  let result = Math.round(currency * 100) / 100;
-  
-  return result.toFixed(2);
-};
+const roundOff = currency => (Math.round(currency * 100) / 100).toFixed(2);
 
 /**
  * Sends request to currency url with user params
@@ -22,6 +18,7 @@ const sendRequest = (currencyUrl, callback) => {
     if (err) {
       callback('There was an error retrieving url:', err);
     }
+
     let $ = cheerio.load(body);
     let currency = $('div.tmc-well.switch-table > p > b').text();
     
