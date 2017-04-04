@@ -14,9 +14,9 @@ const roundOff = currency => (Math.round(currency * 100) / 100).toFixed(2);
  * @currencyUrl string returns the function getCurrency url
 */
 const sendRequest = (currencyUrl, callback) => {
-  request({ url: currencyUrl }, function (err, response, body) {
-    if (err) {
-      callback('There was an error retrieving url:', err);
+  request({ url: currencyUrl }, function (error, response, body) {
+    if (error) {
+      callback('There was an error retrieving url';
     }
 
     let $ = cheerio.load(body);
