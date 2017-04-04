@@ -1,5 +1,5 @@
 {
-  "name": "currency-converter",
+  "name": "rt-currency-converter",
   "description": "Converts between currencies",
   "version": "1.0.1",
   "main": "currencyConverter.js",
