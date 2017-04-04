@@ -35,5 +35,5 @@ const sendRequest = (currencyUrl, callback) => {
 exports.getCurrency = (fromCurrency, toCurrency, callback) => {
     let url = `http://themoneyconverter.com/${fromCurrency}/${toCurrency}.aspx`;
 
-    return sendRequest(url, callback);
+    sendRequest(url, callback);
 };
