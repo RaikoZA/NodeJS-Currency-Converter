@@ -1,0 +1,27 @@
+{
+  "name": "currency-converter",
+  "description": "Converts between currencies",
+  "version": "1.0.1",
+  "main": "currencyConverter.js",
+  "dependencies": {
+    "request": "2.81.0",
+    "cheerio": "0.22.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaikoZA/NodeJS-Currency-Converter.git"
+  },
+  "keywords": [
+    "Currency",
+    "Converter"
+  ],
+  "author": "RaikoZA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaikoZA/NodeJS-Currency-Converter/issues"
+  },
+  "homepage": "https://github.com/RaikoZA/NodeJS-Currency-Converter#readme"
+}
