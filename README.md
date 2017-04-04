@@ -1,6 +1,6 @@
 # NodeJS-Currency-Converter
 
-This is a currency to currency module created in NodeJS. It's purpose is to take one currency format and convert it to another currency and return the result.
+This is a currency to currency module created in NodeJS. It's purpose is to take one currency format and convert it to another currency and returns the live result.
 
 ## Prerequisites
 
