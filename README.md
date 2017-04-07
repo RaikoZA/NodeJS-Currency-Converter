@@ -13,7 +13,7 @@ The first argument will be the currency you want to convert and the second argum
 
 ## Example:
 
-#####Returning the promise result:
+Returning the promise result:
 ```
 
 const currency = require('rt-currency-converter');
