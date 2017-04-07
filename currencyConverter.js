@@ -33,7 +33,6 @@ const sendRequest = url => new Promise((resolve, reject) => {
 exports.getCurrency = (fromCurrency, toCurrency) => {
     const url = `http://themoneyconverter.com/${fromCurrency}/${toCurrency}.aspx`;
 
-    sendRequest(url)
-        .then((result) => { console.log(roundOff(result)) })
-        .catch((error) => { console.log(error) });
+    return sendRequest(url)
+        .then(roundOff)
 };
