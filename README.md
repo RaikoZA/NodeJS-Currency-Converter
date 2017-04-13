@@ -16,10 +16,12 @@ The first argument will be the currency you want to convert and the second argum
 Returning the promise result:
 ```
 
-const currency = require('rt-currency-converter');
-  
-currency.getCurrency('usd', 'eur')
-    .then((result) => { console.log(result) }) //Outputs live currency for USD/EUR
-    .catch((error) => { console.log(error) });
+const ApiRequest = require('./Client/CurrencyConverterClient');
+
+const ApiRequester = new ApiRequest('EUR', 'USD'); // Outputs live currency results
+
+ApiRequester.requester()
+    .then((result) => console.log(result))
+    .catch((error) => console.log(error));
 
 ```
