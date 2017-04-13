@@ -8,10 +8,11 @@ class CurrencyConverterClient {
         this.currencyValues = `${this.from}_${this.to}`;
     }
 
-    requester() {
+    requestConversion() {
 
         /**
          * Rounds off currency output 2 decimal places
+         *
          * @param value is the result returned from ApiRequester
          */
         const roundOff = value => (Math.round(value * 100) / 100).toFixed(2);
