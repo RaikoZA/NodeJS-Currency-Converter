@@ -1,38 +1,41 @@
 'use strict';
 
-const request = require('request');
-const cheerio = require('cheerio');
+const ApiRequest = require('./Client/ApiRequest');
 
 /**
  * Rounds off currency output 2 decimal places
- * @param currency is the result returned from sendRequest
+ * @param currency is the result returned from sendApiRequest
  */
 const roundOff = currency => (Math.round(currency * 100) / 100).toFixed(2);
 
 /**
- * Sends request to currency url with user params
- * @url string returns the function getCurrency url
- */
-const sendRequest = url => new Promise((resolve, reject) => {
-    request({ url: url }, (error, response, body) => {
-        if (error) {
-            reject(`Error: ${error}`);
-        } else {
-            const $ = cheerio.load(body);
-            const currency = $('div.tmc-well.switch-table > p > b').text();
-            resolve(currency);
-        }
-    })
-});
-
-/**
  * Converts two parameters from param to param1 eg: USD to ZAR
- * @param fromCurrency selects the currency you would like to convert
- * @param toCurrency converts fromCurrency to new currency user is requesting
+ * @param from string selects the currency you would like to convert
+ * @param to string converts from => to new currency user is requesting
  */
-exports.getCurrency = (fromCurrency, toCurrency) => {
-    const url = `http://themoneyconverter.com/${fromCurrency}/${toCurrency}.aspx`;
+exports.getCurrencyValue = (from, to) => {
 
-    return sendRequest(url)
-        .then(roundOff)
+    const currencyValues = `${from}_${to}`;
+    const apiUrl = `http://free.currencyconverterapi.com/api/v3/convert?q=${currencyValues}`;
+    const sendApiRequest = new ApiRequest(apiUrl);
+
+    const jsonParse = data => {
+        const value = JSON.parse(data)["results"][currencyValues.toUpperCase()];
+
+        if (typeof value !== 'undefined') return value["val"];
+        else return `Not a valid currency value: ${value}`
+    };
+
+    /**
+     * SendApiRequest sends a request to the apiUrl via the
+     * ApiRequest class and retrieves JSON which is then parsed for final
+     * currency value
+     */
+
+    return sendApiRequest.send()
+        .then((result) => {
+            const response = jsonParse(result);
+            if(isNaN(response)) return 'Could not return currency, check your currency values!';
+            else return roundOff(response)
+        })
 };
