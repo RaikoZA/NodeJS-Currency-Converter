@@ -4,8 +4,7 @@
   "version": "1.0.1",
   "main": "currencyConverter.js",
   "dependencies": {
-    "request": "2.81.0",
-    "cheerio": "0.22.0"
+    "request": "2.81.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
