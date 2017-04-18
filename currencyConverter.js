@@ -5,12 +5,12 @@ const CurrencyConverter = require('./Client/CurrencyConverterClient');
  *
  * @param from string selects the currency you would like to convert
  * @param to string converts from => to new currency user is requesting
- * @param ApiRequester Instantiates ApiRequest class with the currency values
+ * @param requestConversion Instantiates ApiRequest class with the currency values
  */
 const currencyConverter = new CurrencyConverter('usd', 'zar');
 
 /**
- * ApiRequester requestConversion returns a promise with the currency results
+ * requestConversion returns a promise with the currency results
  */
 currencyConverter.requestConversion()
     .then(console.log)
