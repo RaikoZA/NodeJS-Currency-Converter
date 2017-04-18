@@ -15,3 +15,4 @@ const currencyConverter = new CurrencyConverter('usd', 'zar');
 currencyConverter.requestConversion()
     .then(console.log)
     .catch(console.error);
+

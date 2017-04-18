@@ -16,11 +16,11 @@ The first argument will be the currency you want to convert and the second argum
 Returning the promise result:
 ```
 
-const ApiRequest = require('./Client/CurrencyConverterClient');
+const CurrencyConverter = require('./Client/CurrencyConverterClient');
 
-const ApiRequester = new ApiRequest('EUR', 'USD'); // Outputs live currency results
+const currencyConverter = new CurrencyConverter('EUR', 'USD'); // Outputs live currency results
 
-ApiRequester.requester()
+currencyConverter.requestConversion()
     .then((result) => console.log(result))
     .catch((error) => console.log(error));
 
